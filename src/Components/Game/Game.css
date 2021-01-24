@@ -1,0 +1,48 @@
+.game__wrapper {
+  min-height: 200px;
+  width: 100%;
+  max-width: 100%;
+  border-top: 1px solid #a5a2a2;
+  overflow: auto;
+}
+
+.game__pic-div {
+  float: left;
+  width: 25%;
+
+  height: 100%;
+  overflow: hidden;
+  padding-top: 6px;
+}
+
+.game__pic {
+  width: 80%;
+  height: auto;
+  border-radius: 50%;
+  border: 1px solid #a5a2a2;
+  margin: 2px;
+}
+
+.game__info-div {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding: 6px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.game__info-div--subdiv {
+  width: 100%;
+  border-top: 1px solid #a5a2a2;
+}
+
+.game__open-button-div {
+  float: right;
+  height: 100%;
+  width: 20%;
+  text-align: right;
+  padding-top: 6px;
+}

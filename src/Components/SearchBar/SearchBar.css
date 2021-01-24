@@ -1,0 +1,9 @@
+.searchbar {
+  width: 95%;
+  height: 30px;
+  margin: 0 auto 0 auto;
+  padding: 2px;
+  border-radius: 10px;
+  outline: none;
+  text-align: center;
+}
