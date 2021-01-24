@@ -27,9 +27,7 @@
 }
 
 .radio-button__arrow {
-  border: 2px solid black;
-  border-radius: 50%;
-  height: auto;
+  height: 16px;
   width: auto;
   cursor: pointer;
   -moz-transition: transform 1s;

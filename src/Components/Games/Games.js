@@ -1,5 +1,6 @@
 import React from "react";
 import Papa from "papaparse";
+import dataset from "../../game-dataset.csv";
 import "./Games.css";
 import Game from "../Game/Game";
 import SearchBar from "../SearchBar/SearchBar";
@@ -17,7 +18,7 @@ function Games() {
   });
 
   React.useEffect(() => {
-    Papa.parse("/game-dataset.csv", {
+    Papa.parse(dataset, {
       download: true,
       header: true,
       complete: (data) => {
