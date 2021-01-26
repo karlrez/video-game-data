@@ -3,3 +3,7 @@
   width: auto;
   border-radius: 50%;
 }
+
+.open-button__icon:hover {
+  transform: scale(1.2);
+}

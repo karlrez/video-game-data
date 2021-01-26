@@ -25,6 +25,9 @@ function Games() {
         data.data.splice(-1, 1); // removing error in last row
         setRows(data.data);
         console.log("Finished parsing data!");
+        alert(
+          "Thanks for checking out my app!\n\nFilter the data by Title or Publisher and then choose a sort option.\n\nDataset retrieved from: https://researchportal.port.ac.uk/portal/en/datasets/video-games-dataset(d4fe28cd-1e44-4d2f-9db6-85b347bf761e).html"
+        );
       },
     });
   }, []);
@@ -103,7 +106,7 @@ function Games() {
   // or filter some out
   let gamesList;
 
-  if (!searchInput.titleInput) {
+  if (!searchInput.titleInput && !searchInput.publisherInput) {
     gamesList = createGameComponents(sortGames(rows));
   } else {
     let rowsCopy = [...rows]; // dont want to manipulate actual data
