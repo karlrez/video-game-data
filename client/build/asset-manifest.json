@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/video-game-data/static/css/main.52995853.chunk.css",
+    "main.js": "/video-game-data/static/js/main.39bb4010.chunk.js",
+    "main.js.map": "/video-game-data/static/js/main.39bb4010.chunk.js.map",
+    "runtime-main.js": "/video-game-data/static/js/runtime-main.ae8703e5.js",
+    "runtime-main.js.map": "/video-game-data/static/js/runtime-main.ae8703e5.js.map",
+    "static/js/2.45cef4ed.chunk.js": "/video-game-data/static/js/2.45cef4ed.chunk.js",
+    "static/js/2.45cef4ed.chunk.js.map": "/video-game-data/static/js/2.45cef4ed.chunk.js.map",
+    "static/js/3.857c0ef5.chunk.js": "/video-game-data/static/js/3.857c0ef5.chunk.js",
+    "static/js/3.857c0ef5.chunk.js.map": "/video-game-data/static/js/3.857c0ef5.chunk.js.map",
+    "index.html": "/video-game-data/index.html",
+    "static/css/main.52995853.chunk.css.map": "/video-game-data/static/css/main.52995853.chunk.css.map",
+    "static/js/2.45cef4ed.chunk.js.LICENSE.txt": "/video-game-data/static/js/2.45cef4ed.chunk.js.LICENSE.txt",
+    "static/media/game-console.29c9282b.png": "/video-game-data/static/media/game-console.29c9282b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae8703e5.js",
+    "static/js/2.45cef4ed.chunk.js",
+    "static/css/main.52995853.chunk.css",
+    "static/js/main.39bb4010.chunk.js"
+  ]
+}

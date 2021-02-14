@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script>
+      function myFunction() {
+        var val = document.getElementById("idInput").value;
+        document.getElementById("idForm").action = "api/video-game-data/data/" + val;
+        //alert("blah");
+      }
+      </script>
+    </head>
+  <h1>Video Game Data API</h1>
+  <div>
+    <p>
+      Simple api to get data on videos games from
+      <a
+        href="https://researchportal.port.ac.uk/portal/en/datasets/video-games-dataset(d4fe28cd-1e44-4d2f-9db6-85b347bf761e).html"
+        >this</a
+      >
+      dataset
+    </p>
+    <h2>Routes</h2>
+    <ul>
+      <li><a href="api/video-game-data/data">Get all data</a></li><br />
+      
+      <li>
+        <label for="dataid">Get by id: </label>
+        <form id="idForm" onsubmit="myFunction()">
+          <input id="idInput" type="text" size=5 value=""></input>
+          <input type="submit" value="Submit" >
+        </form>
+        
+      </li>
+    </ul>
+  </div>
+</html>
