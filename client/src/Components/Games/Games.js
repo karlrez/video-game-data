@@ -35,8 +35,8 @@ function Games() {
 
     setLoading(true);
     fetch(
-      //"https://video-game-data-api.herokuapp.com/api/video-game-data/data/?page=1&limit=20",
-      `http://localhost:5000/api/video-game-data/data/?page=${searchInput.pageNum}&limit=${searchInput.limit}&sort=${radioButtonVal}&filterTitle=${searchInput.titleInput}&filterPublisher=${searchInput.publisherInput}`,
+      `https://video-game-data-api.herokuapp.com/api/video-game-data/data/?page=${searchInput.pageNum}&limit=${searchInput.limit}&sort=${radioButtonVal}&filterTitle=${searchInput.titleInput}&filterPublisher=${searchInput.publisherInput}`,
+      //`http://localhost:5000/api/video-game-data/data/?page=${searchInput.pageNum}&limit=${searchInput.limit}&sort=${radioButtonVal}&filterTitle=${searchInput.titleInput}&filterPublisher=${searchInput.publisherInput}`,
       {
         method: "GET",
       }
