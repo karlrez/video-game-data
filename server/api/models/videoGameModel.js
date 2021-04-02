@@ -35,7 +35,7 @@ const videoGameSchema = new mongoose.Schema(
     lnUsedPrice: {
       type: String,
     },
-    ["ReviewScore"]: {
+    ["Review Score"]: {
       type: String,
     },
     RatingE: {

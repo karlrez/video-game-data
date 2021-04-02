@@ -4,30 +4,34 @@ const VideoGame = mongoose.model("VideoGames", Schema.videoGameSchema);
 const APIFeatures = require("./../utils/apiFeatures");
 
 exports.getAllData = async (req, res) => {
-  // Pagination Info
-  const totalResults = 1770; //TODO: Make this dynamic
-  const page = req.query.page ? Number(req.query.page) : 1;
-  const limit = req.query.limit ? Number(req.query.limit) : 100;
-  const hasNextPage = page * limit >= totalResults ? false : true;
-  const pageNum = req.query.page || 1;
-  const totalPages = Math.ceil(totalResults / limit);
-
   try {
     // Execute query
     const features = new APIFeatures(VideoGame.find(), req.query)
       .sort()
+      .filter()
       .limitFields()
       .paginate();
     const videoGames = await features.query;
+
+    // TODO: find way to make this a single query
+    // Performing second query just to get value for totalResults
+    const totalResultsQuery = new APIFeatures(VideoGame.find(), req.query)
+      .filter()
+      .limitFields("_id");
+    const totalResults = await totalResultsQuery.query;
+
+    // Pagination Info
+    const page = req.query.page ? Number(req.query.page) : 1;
+    const limit = req.query.limit ? Number(req.query.limit) : 100;
 
     // Send response
     res.status(200).json({
       status: "success",
       results: videoGames.length,
-      totalResults: totalResults,
+      totalResults: totalResults.length,
       page: page,
-      totalPages: totalPages,
-      hasNextPage: hasNextPage,
+      totalPages: Math.ceil(totalResults.length / limit),
+      hasNextPage: page * limit >= totalResults.length ? false : true,
       data: {
         videoGames,
       },

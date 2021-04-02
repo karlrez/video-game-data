@@ -1,6 +1,6 @@
 const express = require("express");
 const controller = require("./../controllers/videoGameController");
-const AppError = require("./../../utils/appError");
+const AppError = require("./../utils/appError");
 
 const router = express.Router();
 

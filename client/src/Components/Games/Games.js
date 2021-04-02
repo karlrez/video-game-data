@@ -7,27 +7,47 @@ import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import MoonLoader from "react-spinners/ClipLoader";
 
 function Games() {
-  const [data, setData] = React.useState([0]);
+  const [data, setData] = React.useState({});
   const [searchInput, setSearchInput] = React.useState({
     titleInput: "",
     publisherInput: "",
-    radioButtonInput: "year",
+    radioButtonInput: "-YearReleased",
     arrowBtn: true, // pointing up if true
-    numOfGames: 20, // pagination number
+    pageNum: 1, // pagination number
+    limit: 20, // records per page
   });
+  const [loading, setLoading] = React.useState(false);
 
+  // Initial fetch on page load and if searchInput changes
   useEffect(() => {
+    // Make sure '-' is appended to radioButtonInput if needed
+    let radioButtonVal;
+    if (searchInput.arrowBtn) {
+      radioButtonVal =
+        searchInput.radioButtonInput.charAt(0) === "-"
+          ? searchInput.radioButtonInput
+          : "-" + searchInput.radioButtonInput;
+    } else
+      radioButtonVal =
+        searchInput.radioButtonInput.charAt(0) === "-"
+          ? searchInput.radioButtonInput.substring(1)
+          : searchInput.radioButtonInput;
+
+    setLoading(true);
     fetch(
-      "https://video-game-data-api.herokuapp.com/api/video-game-data/data",
-      //"http://localhost:5000/api/video-game-data/data",
+      //"https://video-game-data-api.herokuapp.com/api/video-game-data/data/?page=1&limit=20",
+      `http://localhost:5000/api/video-game-data/data/?page=${searchInput.pageNum}&limit=${searchInput.limit}&sort=${radioButtonVal}&filterTitle=${searchInput.titleInput}&filterPublisher=${searchInput.publisherInput}`,
       {
         method: "GET",
       }
     )
       .then((res) => res.json())
-      .then((data) => setData(data.data))
-      .catch((error) => alert("Sorry! Looks like my api is not working :("));
-  }, []);
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => console.log("Something wrong with api :("));
+  }, [searchInput]);
 
   const onTitleInputChange = (e) => {
     setSearchInput({
@@ -57,75 +77,18 @@ function Games() {
   const onLoadMoreBtnClick = () => {
     setSearchInput({
       ...searchInput,
-      numOfGames: searchInput.numOfGames + 20,
+      limit: searchInput.limit + 20,
     });
   };
 
-  // Takes the records from the dataset as an array and returns
-  // Game components for each
-  const createGameComponents = (gamesArray) => {
-    let gamesList = gamesArray.slice(0, searchInput.numOfGames).map((row) => {
-      return <Game gameData={row} key={row.id} />;
+  // Takes the records from the data array and returns game componentes for each
+  const createGameComponents = () => {
+    let gamesList = data.data.videoGames.map((row, index) => {
+      return <Game gameData={row} key={index} />;
     });
     console.log("finished creating game components");
     return gamesList;
   };
-
-  let resultsCount; // Just want this for load more btn
-
-  const sortGames = (gamesArray) => {
-    // These variables need to change for ascending/descending ordering
-    const val1 = searchInput.arrowBtn ? -1 : 1;
-    const val2 = searchInput.arrowBtn ? 1 : -1;
-
-    switch (searchInput.radioButtonInput) {
-      case "year":
-        resultsCount = gamesArray.length;
-        return gamesArray.sort((a, b) =>
-          a.YearReleased > b.YearReleased ? val1 : val2
-        );
-      case "sales":
-        resultsCount = gamesArray.length;
-        return gamesArray.sort((a, b) =>
-          a["US Sales (millions)"] > b["US Sales (millions)"] ? val1 : val2
-        );
-      case "review-score":
-        resultsCount = gamesArray.length;
-        return gamesArray.sort((a, b) =>
-          a["Review Score"] > b["Review Score"] ? val1 : val2
-        );
-      default:
-        break;
-    }
-  };
-
-  // Here we either pass all our game data to createGameComponents()
-  // or filter some out
-  let gamesList;
-
-  if (!searchInput.titleInput && !searchInput.publisherInput) {
-    gamesList = createGameComponents(sortGames(data));
-  } else {
-    let rowsCopy = [...data]; // dont want to manipulate actual data
-    if (searchInput.titleInput) {
-      rowsCopy = rowsCopy.filter((row) =>
-        row.Title.toLowerCase().includes(searchInput.titleInput.toLowerCase())
-      );
-    }
-    if (searchInput.publisherInput) {
-      rowsCopy = rowsCopy.filter((row) =>
-        row.Publisher.toLowerCase().includes(
-          searchInput.publisherInput.toLowerCase()
-        )
-      );
-    }
-    gamesList = createGameComponents(sortGames(rowsCopy));
-  }
-
-  //let spinner = <MoonLoader />;
-  //if (data < 1) {
-  //spinner = <Spinner />;
-  //}
 
   return (
     <div className="games">
@@ -143,17 +106,24 @@ function Games() {
         buttonVal={searchInput.radioButtonInput}
         arrowBtn={searchInput.arrowBtn}
       />
-      {gamesList}
-      <MoonLoader color="red" loading={data < 1} size={150} />
+
+      <div className="spinner">
+        <MoonLoader color="red" loading={loading} size={180} />
+      </div>
+
       <p>
-        Showing{" "}
-        {searchInput.numOfGames > resultsCount
-          ? resultsCount
-          : searchInput.numOfGames}{" "}
-        of {resultsCount} results
+        {data.data
+          ? `Showing ${data.data.videoGames.length} of ${data.totalResults} Games`
+          : null}
       </p>
-      {resultsCount > 20 ? <LoadMoreBtn onClick={onLoadMoreBtnClick} /> : null}
+
+      {data.data ? createGameComponents() : null}
+
+      {data.hasNextPage === true ? (
+        <LoadMoreBtn onClick={onLoadMoreBtnClick} />
+      ) : null}
     </div>
   );
 }
+
 export default Games;

@@ -4,6 +4,15 @@
   max-width: 30%;
 }
 
+.spinner {
+  top: 30%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  position: absolute;
+  z-index: 1;
+}
+
 @media only screen and (max-width: 700px) {
   .games {
     min-width: none;

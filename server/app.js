@@ -2,7 +2,7 @@ const express = require("express");
 const videoGameRouter = require("./api/routes/videoGameRouter");
 var csv = require("fast-csv");
 var fs = require("fs");
-const AppError = require("./utils/appError");
+const AppError = require("./api/utils/appError");
 
 const app = express();
 

@@ -9,31 +9,31 @@ function RadioButtons(props) {
           <tr>
             <td
               className={
-                props.buttonVal === "year"
+                props.buttonVal === "-YearReleased"
                   ? "radio-buttons__td first radio-button--highlight"
                   : "radio-buttons__td first"
               }
-              onClick={(e) => props.onClick("year")}
+              onClick={(e) => props.onClick("-YearReleased")}
             >
               Year
             </td>
             <td
               className={
-                props.buttonVal === "sales"
+                props.buttonVal === "-US Sales (millions)"
                   ? "radio-buttons__td second radio-button--highlight"
                   : "radio-buttons__td second"
               }
-              onClick={(e) => props.onClick("sales")}
+              onClick={(e) => props.onClick("-US Sales (millions)")}
             >
               Sales
             </td>
             <td
               className={
-                props.buttonVal === "review-score"
+                props.buttonVal === "-Review Score"
                   ? "radio-buttons__td third radio-button--highlight"
                   : "radio-buttons__td third"
               }
-              onClick={(e) => props.onClick("review-score")}
+              onClick={(e) => props.onClick("-Review Score")}
             >
               Review Score
             </td>
