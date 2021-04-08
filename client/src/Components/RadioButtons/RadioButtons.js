@@ -1,5 +1,6 @@
 import "./RadioButtons.css";
 import Arrow from "../../Assets/up-arrow.png";
+import ReactTooltip from "react-tooltip";
 
 function RadioButtons(props) {
   return (
@@ -14,6 +15,7 @@ function RadioButtons(props) {
                   : "radio-buttons__td first"
               }
               onClick={(e) => props.onClick("-YearReleased")}
+              data-tip="Sort by year"
             >
               Year
             </td>
@@ -24,6 +26,7 @@ function RadioButtons(props) {
                   : "radio-buttons__td second"
               }
               onClick={(e) => props.onClick("-US Sales (millions)")}
+              data-tip="Sort by sales"
             >
               Sales
             </td>
@@ -34,6 +37,7 @@ function RadioButtons(props) {
                   : "radio-buttons__td third"
               }
               onClick={(e) => props.onClick("-Review Score")}
+              data-tip="Sort by review score"
             >
               Review Score
             </td>
@@ -43,6 +47,11 @@ function RadioButtons(props) {
                   ? "radio-button__arrow"
                   : "radio-button__arrow arrowDown"
               }
+              data-tip={
+                props.arrowBtn
+                  ? "Change to ascending order"
+                  : "Change to descending order"
+              }
             >
               <button className="radio-button__arrow__button">
                 <img src={Arrow} alt="up-arrow" onClick={props.onArrowClick} />
@@ -51,6 +60,7 @@ function RadioButtons(props) {
           </tr>
         </tbody>
       </table>
+      <ReactTooltip place="top" type="dark" effect="float" />
     </div>
   );
 }
