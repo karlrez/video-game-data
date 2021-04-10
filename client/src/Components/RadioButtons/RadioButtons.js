@@ -9,6 +9,7 @@ function RadioButtons(props) {
         <tbody>
           <tr>
             <td
+              id="first"
               className={
                 props.buttonVal === "-YearReleased"
                   ? "radio-buttons__td first radio-button--highlight"
@@ -20,6 +21,7 @@ function RadioButtons(props) {
               Year
             </td>
             <td
+              id="second"
               className={
                 props.buttonVal === "-US Sales (millions)"
                   ? "radio-buttons__td second radio-button--highlight"
@@ -31,6 +33,7 @@ function RadioButtons(props) {
               Sales
             </td>
             <td
+              id="third"
               className={
                 props.buttonVal === "-Review Score"
                   ? "radio-buttons__td third radio-button--highlight"
@@ -42,6 +45,7 @@ function RadioButtons(props) {
               Review Score
             </td>
             <td
+              id="arrowBtn"
               className={
                 props.arrowBtn
                   ? "radio-button__arrow"
@@ -54,7 +58,12 @@ function RadioButtons(props) {
               }
             >
               <button className="radio-button__arrow__button">
-                <img src={Arrow} alt="up-arrow" onClick={props.onArrowClick} />
+                <img
+                  src={Arrow}
+                  alt="up-arrow"
+                  onClick={props.onArrowClick}
+                  id="arrowBtnImage"
+                />
               </button>
             </td>
           </tr>

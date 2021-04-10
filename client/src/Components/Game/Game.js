@@ -42,22 +42,22 @@ function Game(props) {
 
   // Info subdiv is closed by default
   let subDiv = !plusIcon ? (
-    <div className="game__info-div--subdiv">
+    <div className="game__info-div--subdiv" id="subdiv">
       <ul>
-        <li>
+        <li id="used-price">
           <strong>Used Price:</strong> ${props.gameData.Usedprice}
         </li>
-        <li>
+        <li id="console">
           <strong>Console:</strong> {props.gameData.Console}
         </li>
-        <li>
+        <li id="genre">
           <strong>Genre:</strong> {props.gameData.Genre}
         </li>
-        <li>
+        <li id="rating">
           <strong>Rating:</strong> {gameRating}
         </li>
         <br />
-        <li>
+        <li id="publisher">
           <strong>Publisher: </strong>
           {props.gameData.Publisher}
         </li>
@@ -71,16 +71,16 @@ function Game(props) {
         <img src={gamePic} className="game__pic" alt="game pic" />
       </div>
       <div className="game__info-div">
-        <h3>{props.gameData.Title}</h3>
+        <h3 id="title">{props.gameData.Title}</h3>
         <ul className="game__info-div-ul">
-          <li>
+          <li id="year-released">
             <strong>Year Realeased:</strong> {props.gameData.YearReleased}
           </li>
-          <li>
+          <li id="sales">
             <strong>US Sales (Millions):</strong> $
             {props.gameData["US Sales (millions)"]}
           </li>
-          <li>
+          <li id="review-score">
             <strong>Review Score:</strong> {props.gameData["Review Score"]}
           </li>
         </ul>

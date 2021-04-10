@@ -7,7 +7,7 @@ import "./OpenButton.css";
 
 function OpenButton(props) {
   return (
-    <button onClick={props.onClick} className="open-button">
+    <button onClick={props.onClick} className="open-button" id="open-btn">
       {props.plusIcon ? (
         <img src={PlusIcon} alt="Plus icon" className="open-button__icon" />
       ) : (

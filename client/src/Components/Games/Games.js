@@ -18,9 +18,8 @@ function Games() {
   });
   const [loading, setLoading] = React.useState(false);
 
-  // Initial fetch on page load and if searchInput changes
   useEffect(() => {
-    // Make sure '-' is appended to radioButtonInput if needed
+    // API appends '-' to radioButtonInput for desc sort
     let radioButtonVal;
     if (searchInput.arrowBtn) {
       radioButtonVal =
@@ -81,19 +80,18 @@ function Games() {
     });
   };
 
-  // Takes the records from the data array and returns game componentes for each
+  // Takes the records from the data array and returns game components for each
   const createGameComponents = () => {
     let gamesList = data.data.videoGames.map((row, index) => {
       return <Game gameData={row} key={index} />;
     });
-    console.log("finished creating game components");
     return gamesList;
   };
 
   return (
     <div className="games">
       <SearchBar
-        placeholder="Search by Tile..."
+        placeholder="Search by Title..."
         onChange={onTitleInputChange}
       />
       <SearchBar
@@ -107,21 +105,22 @@ function Games() {
         arrowBtn={searchInput.arrowBtn}
       />
 
-      <div className="spinner">
-        <MoonLoader color="red" loading={loading} size={180} />
-      </div>
+      {loading && (
+        <div className="spinner">
+          <MoonLoader color="red" loading={loading} size={180} />
+        </div>
+      )}
 
       <p>
-        {data.data
-          ? `Showing ${data.data.videoGames.length} of ${data.totalResults} Games`
-          : null}
+        {data.data &&
+          `Showing ${data.data.videoGames.length} of ${data.totalResults} Games`}
       </p>
 
-      {data.data ? createGameComponents() : null}
+      {data.data && createGameComponents()}
 
-      {data.hasNextPage === true ? (
+      {data.hasNextPage === true && (
         <LoadMoreBtn onClick={onLoadMoreBtnClick} />
-      ) : null}
+      )}
     </div>
   );
 }
