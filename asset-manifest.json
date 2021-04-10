@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/video-game-data/static/css/main.dc484157.chunk.css",
-    "main.js": "/video-game-data/static/js/main.f85395bd.chunk.js",
-    "main.js.map": "/video-game-data/static/js/main.f85395bd.chunk.js.map",
-    "runtime-main.js": "/video-game-data/static/js/runtime-main.843f40f5.js",
-    "runtime-main.js.map": "/video-game-data/static/js/runtime-main.843f40f5.js.map",
-    "static/js/2.b19a9420.chunk.js": "/video-game-data/static/js/2.b19a9420.chunk.js",
-    "static/js/2.b19a9420.chunk.js.map": "/video-game-data/static/js/2.b19a9420.chunk.js.map",
-    "static/js/3.0dfcc6fd.chunk.js": "/video-game-data/static/js/3.0dfcc6fd.chunk.js",
-    "static/js/3.0dfcc6fd.chunk.js.map": "/video-game-data/static/js/3.0dfcc6fd.chunk.js.map",
+    "main.css": "/video-game-data/static/css/main.2020d7ac.chunk.css",
+    "main.js": "/video-game-data/static/js/main.691022a1.chunk.js",
+    "main.js.map": "/video-game-data/static/js/main.691022a1.chunk.js.map",
+    "runtime-main.js": "/video-game-data/static/js/runtime-main.f4ffd65b.js",
+    "runtime-main.js.map": "/video-game-data/static/js/runtime-main.f4ffd65b.js.map",
+    "static/js/2.f3b0778e.chunk.js": "/video-game-data/static/js/2.f3b0778e.chunk.js",
+    "static/js/2.f3b0778e.chunk.js.map": "/video-game-data/static/js/2.f3b0778e.chunk.js.map",
+    "static/js/3.7734fb04.chunk.js": "/video-game-data/static/js/3.7734fb04.chunk.js",
+    "static/js/3.7734fb04.chunk.js.map": "/video-game-data/static/js/3.7734fb04.chunk.js.map",
     "index.html": "/video-game-data/index.html",
-    "static/css/main.dc484157.chunk.css.map": "/video-game-data/static/css/main.dc484157.chunk.css.map",
-    "static/js/2.b19a9420.chunk.js.LICENSE.txt": "/video-game-data/static/js/2.b19a9420.chunk.js.LICENSE.txt",
+    "static/css/main.2020d7ac.chunk.css.map": "/video-game-data/static/css/main.2020d7ac.chunk.css.map",
+    "static/js/2.f3b0778e.chunk.js.LICENSE.txt": "/video-game-data/static/js/2.f3b0778e.chunk.js.LICENSE.txt",
     "static/media/game-console.29c9282b.png": "/video-game-data/static/media/game-console.29c9282b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.843f40f5.js",
-    "static/js/2.b19a9420.chunk.js",
-    "static/css/main.dc484157.chunk.css",
-    "static/js/main.f85395bd.chunk.js"
+    "static/js/runtime-main.f4ffd65b.js",
+    "static/js/2.f3b0778e.chunk.js",
+    "static/css/main.2020d7ac.chunk.css",
+    "static/js/main.691022a1.chunk.js"
   ]
 }
